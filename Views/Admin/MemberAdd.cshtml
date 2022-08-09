@@ -1,0 +1,192 @@
+﻿@model KAMS.Models.USERS
+
+
+<script>
+    $(function () {
+        $('#CITY').change(function () {
+            var id = $('#CITY').val();
+            $.ajax({
+                url: '/Admin/ilcegetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#TOWNS').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#TOWNS').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</option>");
+                    }
+                }
+            });
+        });
+        $('#TOWNS').change(function () {
+            var id = $('#TOWNS').val();
+            $.ajax({
+                url: '/Admin/semtgetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#DISTRICT').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#DISTRICT').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</option>");
+                    }
+                }
+            });
+        });
+
+    });
+</script>
+
+@{
+    ViewBag.Title = "MemberAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center my-4">Member Add</h2>
+
+<div class="container">
+    @using (Html.BeginForm("MemberAdd", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.USERNAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.USERNAME, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.USERNAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.C_PASSWORD, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.C_PASSWORD, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.C_PASSWORD, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.C_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.C_NAME, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.C_NAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.C_SURNAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.C_SURNAME, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.C_SURNAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.GENDER, "GENDER: ERKEK: E & KADIN: K", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => Model.GENDER, "Lütfen Erkek için E, Kadın için K giriniz!", new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.GENDER, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.COUNTRY, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("COUNTRY", null, "----Ülke Seçiniz----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.COUNTRY, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CITY, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CITY", null, "----Şehir Seçiniz----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CITY, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TOWNS, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("TOWNS", null, "----İlçe Seçiniz----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TOWNS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DISTRICT, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("DISTRICT", null, "----Semt Seçiniz----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.DISTRICT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.C_ADDRESS, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.C_ADDRESS, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.C_ADDRESS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TELEPHONE, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TELEPHONE, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.TELEPHONE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => Model.email, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.YETKIID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("YETKIID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.YETKIID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.img, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.img, new
+               {
+                   htmlAttributes = new
+                   {
+                       @class = "form-control input-rounded",
+                       type = "file",
+                       accept = ".jpg, .jpeg, .png"
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.img, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-rounded btn-block" />
+                </div>
+            </div>
+        </div>
+    }
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>
+
+
+
+

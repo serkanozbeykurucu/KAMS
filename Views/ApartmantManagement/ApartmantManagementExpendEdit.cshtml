@@ -1,0 +1,72 @@
+﻿@model KAMS.Models.ApartmanExpense
+
+@{
+    ViewBag.Title = "ApartmantManagementExpendEdit";
+    Layout = "~/Views/Shared/_ApartmantManagementLayaout.cshtml";
+}
+
+
+
+
+<div class="container">
+    <h2 class="text-center my-4"> Apartman Harcama Güncelleme </h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("AID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EXPENSETYPE, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("EpenseType", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.EXPENSETYPE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AÇIKLAMA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AÇIKLAMA, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.AÇIKLAMA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TARIH, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TARIH, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.TARIH, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TUTAR, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TUTAR, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.TUTAR, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Güncelle" class="btn btn-primary btn-rounded btn-block" />
+                    @Html.ActionLink("Back to List", "ApartmanManagmemtExpend", null, new { @class = "btn btn-default btn-rounded my-2" })
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

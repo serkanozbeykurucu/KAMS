@@ -1,0 +1,211 @@
+﻿@model KAMS.Models.RESIDENT
+
+@{
+    ViewBag.Title = "MemberAdd";
+    Layout = "~/Views/Shared/_ApartmantManagementLayaout.cshtml";
+}
+
+<script>
+    $(function () {
+        $('#CITY').change(function () {
+            var id = $('#CITY').val();
+            $.ajax({
+                url: '/ApartmantManagement/ilcegetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#TOWNS').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#TOWNS').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+        $('#TOWNS').change(function () {
+            var id = $('#TOWNS').val();
+            $.ajax({
+                url: '/ApartmantManagement/semtgetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#DISTRICTS').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#DISTRICTS').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+
+        $('#ApartmanID').change(function () {
+            var id = $('#ApartmanID').val();
+            $.ajax({
+                url: '/ApartmantManagement/blokgetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#ApartmanBlocs').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#ApartmanBlocs').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+
+
+
+        $('#ApartmanBlocs').change(function () {
+            var id = $('#ApartmanBlocs').val();
+            $.ajax({
+                url: '/ApartmantManagement/katgetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#KatID').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#KatID').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+
+        $('#KatID').change(function () {
+            var id = $('#KatID').val();
+            $.ajax({
+                url: '/ApartmantManagement/dairegetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#DAIREID').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#DAIREID').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+
+
+
+    });
+</script>
+
+
+<div class="container">
+
+    <h2 class="text-center my-3">Resident Add</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.NAMESURNAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NAMESURNAME, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.NAMESURNAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.C_ADDRESS, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.C_ADDRESS, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.C_ADDRESS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.COUNTRY, "COUNTRY", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("COUNTRY", null, "----Ülke Seçiniz----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.COUNTRY, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CITY, "CITY", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CITY", null, "----Şehir Seçiniz----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CITY, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TOWNS, "TOWNS", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("TOWNS", null, "----İlçe Seçiniz----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TOWNS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DISTRICTS, "DISTRICTS", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("DISTRICTS", null, "----Semt Seçiniz----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.DISTRICTS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ApartmanID, "ApartmanID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ApartmanID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ApartmanID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ApartmanBlocs, "ApartmanBlocs", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ApartmanBlocs", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ApartmanBlocs, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.KatID, "KatID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("KatID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.KatID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DAIREID, "DAIREID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("DAIREID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.DAIREID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.GSM, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.GSM, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.GSM, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-primary btn-rounded btn-block" />
+                    @Html.ActionLink("Back to List", "Member", null, new { @class = "btn btn-default btn-rounded my-2" })
+
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

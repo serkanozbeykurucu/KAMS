@@ -1,0 +1,34 @@
+﻿
+        public IEnumerable<SelectListItem> ct { get; set; }
+        public IEnumerable<SelectListItem> c { get; set; }
+        public IEnumerable<SelectListItem> t { get; set; }
+        public IEnumerable<SelectListItem> d { get; set; }
+
+
+         public IEnumerable<SelectListItem> blocid { get; set; }
+         public IEnumerable<SelectListItem> katid { get; set; }
+
+
+@type = "file"
+
+        Contact Formu mail gönderme kodu.
+            <script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+
+        function sendEmail()
+        {
+            Email.send
+                (
+                {
+                SecureToken: "ec4963d8-683f-4e61-9ca0-3bfc9cee1bf7",
+                To: document.getElementById("Contactemail").value,
+                From: "celalinan82@gmail.com",
+                Subject: document.getElementById("Contactsubject").value,
+                Body: document.getElementById("Contactname").value + " <br>" + document.getElementById("Contactmessage").value
+                }
+            ).then(
+                message => alert(message)
+            );
+        }
+    </script>
+                            <button type="Submit" onclick="sendEmail()">Send Message</button>

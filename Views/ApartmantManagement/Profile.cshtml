@@ -1,0 +1,135 @@
+﻿@model KAMS.Models.USERS
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_ApartmantManagementLayaout.cshtml";
+}
+
+@*<h2>Profile</h2>*@
+
+<div class="container-fluid">
+    <section id="main-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="user-profile">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="user-photo m-b-30">
+                                        <img class="img-fluid" src="@ViewBag.img" alt="">
+                                    </div>
+                                    @*<div class="user-work">
+                                            <h4>work</h4>
+                                            <div class="work-content">
+                                                <h3>It Solution </h3>
+                                                <p>123, South Mugda</p>
+                                                <p>New York, 1214</p>
+                                            </div>
+                                            <div class="work-content">
+                                                <h3>Unix</h3>
+                                                <p>123, South Mugda</p>
+                                                <p>New York, 1214</p>
+                                            </div>
+                                        </div>*@
+                                    @*<div class="user-skill">
+                                            <h4>Skill</h4>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">Branding</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">UI/UX</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Web Design</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Wordpress</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Magento</a>
+                                                </li>
+                                            </ul>
+                                        </div>*@
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="user-profile-name">
+                                        @Html.DisplayFor(model => Model.C_NAME)
+                                        @Html.DisplayFor(model => Model.C_SURNAME)
+
+                                        @*@model Model.USERS.Username*@
+                                        @*@ViewBag.namesurmane*@
+                                    </div>
+                                    <div class="user-Location">
+                                        <i class="ti-location-pin"></i>
+                                        @Html.DisplayFor(modelItem => Model.COUNTRY1.COUNTRY1) /
+                                        @Html.DisplayFor(modelItem => Model.CITY1.CITY1)
+                                    </div>
+                                    <div class="user-job-title">Apartman Manager</div>
+                                    @*<div class="ratings">
+                                            <h4>Ratings</h4>
+                                            <div class="rating-star">
+                                                <span>8.9</span>
+                                                <i class="ti-star color-primary"></i>
+                                                <i class="ti-star color-primary"></i>
+                                                <i class="ti-star color-primary"></i>
+                                                <i class="ti-star color-primary"></i>
+                                                <i class="ti-star"></i>
+                                            </div>
+                                        </div>*@
+                                    @*<div class="user-send-message">
+                                            <button class="btn btn-primary btn-addon" type="button">
+                                                <i class="ti-email"></i>Send Message
+                                            </button>
+                                        </div>*@
+                                    <div class="custom-tab user-profile-tab">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li role="presentation" class="active">
+                                                <a href="#1" aria-controls="1" role="tab" data-toggle="tab">About</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div role="tabpanel" class="tab-pane active" id="1">
+                                                <div class="contact-information">
+                                                    <h4>Contact information</h4>
+                                                    <div class="phone-content">
+                                                        <span class="contact-title">Phone:</span>
+                                                        <span class="phone-number">
+                                                            @Html.DisplayFor(model => Model.TELEPHONE)
+                                                        </span>
+                                                    </div>
+                                                    <div class="address-content">
+                                                        <span class="contact-title">Address:</span>
+                                                        <span class="mail-address">
+                                                            @Html.DisplayFor(model => Model.C_ADDRESS)
+                                                        </span>
+                                                    </div>
+                                                    <div class="email-content">
+                                                        <span class="contact-title">Email:</span>
+                                                        <span class="contact-email">
+                                                            @Html.DisplayFor(model => Model.email)
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="basic-information">
+                                                    <h4>Kişisel Bilgiler</h4>
+
+                                                    <div class="gender-content">
+                                                        <span class="contact-title">Cinsiyet:</span>
+                                                        <span class="gender">
+                                                            @Html.DisplayFor(x => Model.GENDER)
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,77 @@
+﻿@model KAMS.Models.ResidentRevenus
+
+@{
+    ViewBag.Title = "ResidentRevenueAdd";
+    Layout = "~/Views/Shared/_ApartmantManagementLayaout.cshtml";
+}
+
+<div class="container">
+    <h2 class="text-center my-4">Üye Gelir Ekleme</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.REID, "REID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("REID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.REID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.REVENUETYPE, "REVENUETYPE", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("REVENUETYPE", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.REVENUETYPE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DATE, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DATE, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.DATE, "", new { @class = "text-danger" })
+                    @*, disabled = "disabled", @readonly = "readonly"*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AÇIKLAMA, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AÇIKLAMA, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.AÇIKLAMA, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TUTAR, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.TUTAR, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                        <div class="input-group-append input-rounded">
+                            <span class="input-group-text">₺</span>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.TUTAR, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-primary btn-rounded btn-block" />
+                    @Html.ActionLink("Back to List", "ResidentAccount", null, new { @class = "btn btn-default btn-rounded my-2" })
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

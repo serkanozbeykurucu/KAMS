@@ -1,0 +1,112 @@
+﻿@model KAMS.Models.ApartmantDetails
+
+@{
+    ViewBag.Title = "ApartmantAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    $(function () {
+        $('#CTID').change(function () {
+            var id = $('#CTID').val();
+            $.ajax({
+                url: '/Admin/ilcegetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#TWID').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#TWID').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+        $('#TWID').change(function () {
+            var id = $('#TWID').val();
+            $.ajax({
+                url: '/Admin/semtgetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#DTID').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#DTID').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+    });
+</script>
+<div class="container">
+    <h2 class="text-center my-4">Apartmant Add</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NAME, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.COUNTRY, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CID", null, "----Ülke Seçiniz----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CITY, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CTID", null, "----Şehir Seçiniz----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CTID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TOWNS, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("TWID", null, "----İlçe Seçiniz----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TWID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DTID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("DTID", null, "----Semt Seçiniz----", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.DTID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.C_ADDRESS, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.C_ADDRESS, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.C_ADDRESS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-primary btn-rounded btn-block" />
+                    @Html.ActionLink("Back to List", "ApartmantLists", null, new { @class = "btn btn-default btn-rounded my-2" })
+
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>

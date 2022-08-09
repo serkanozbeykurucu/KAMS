@@ -1,0 +1,135 @@
+﻿@model KAMS.Models.USERS
+
+@{
+    ViewBag.Title = "MemberDelete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container my-4">
+    <h3 class="text-center">MemberDelete</h3>
+
+    <div class="form-horizontal">
+        <h4 class="text-left my-2">Are you sure you want to delete this?</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.USERNAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.USERNAME, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.USERNAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.C_PASSWORD, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.C_PASSWORD, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.C_PASSWORD, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.C_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.C_NAME, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.C_NAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.C_SURNAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.C_SURNAME, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.C_SURNAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GENDER, "Cinsiyet", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => Model.GENDER, "Cinsiyet", new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.GENDER, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.COUNTRY, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.COUNTRY1.COUNTRY1, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.COUNTRY, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CITY, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.CITY1.CITY1, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.CITY, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TOWNS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.TOWNS1.TOWNS1, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.TOWNS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DISTRICT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.DISTRICTS.DISTRICT, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.DISTRICT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.C_ADDRESS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.C_ADDRESS, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.C_ADDRESS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TELEPHONE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TELEPHONE, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.TELEPHONE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => Model.email, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YETKIID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.YETKILER.YETKI, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.YETKIID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete" class="btn btn-success btn-rounded btn-block" />
+                @Html.ActionLink("Back to List", "Member", null, new { @class = "btn btn-default btn-rounded my-2" })
+
+            </div>
+
+        </div>
+    }
+</div>

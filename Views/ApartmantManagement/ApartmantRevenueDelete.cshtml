@@ -1,0 +1,65 @@
+﻿@model KAMS.Models.ApartmanRevenue
+
+@{
+    ViewBag.Title = "ApartmantRevenueDelete";
+    Layout = "~/Views/Shared/_ApartmantManagementLayaout.cshtml";
+}
+
+<h2>ApartmantRevenueDelete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ApartmanRevenue</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AÇIKLAMA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AÇIKLAMA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TUTAR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TUTAR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApartmantDetails.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApartmantDetails.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REVUNUETYPE1.REVUNUE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REVUNUETYPE1.REVUNUE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "ApartmantRevenue")
+        </div>
+    }
+</div>

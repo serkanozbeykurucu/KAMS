@@ -1,0 +1,64 @@
+﻿@model KAMS.Models.ApartmanRevenue
+
+@{
+    ViewBag.Title = "ApartmantRevenueDetail";
+    Layout = "~/Views/Shared/_ApartmantManagementLayaout.cshtml";
+}
+
+<div class="container my-4">
+
+    <h2 class="text-center"> Apartman Gelir Detayları </h2>
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApartmantDetails.NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ApartmantDetails.NAME, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.ApartmantDetails.NAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.REVUNUETYPE1.REVUNUE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.REVUNUETYPE1.REVUNUE, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.REVUNUETYPE1.REVUNUE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DATE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DATE, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.DATE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TUTAR, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TUTAR, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.TUTAR, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AÇIKLAMA, "Açıklama", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AÇIKLAMA, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.AÇIKLAMA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+
+    </div>
+    <div>
+        <p>
+            @Html.ActionLink("Back to List", "ApartmantRevenue", null, new { @class = "btn btn-default btn-rounded" }) |
+            @Html.ActionLink("Update", "ApartmantRevenueEdit", null, new { id = Model.ID }, new { @class = "btn btn-success btn-rounded" })
+        </p>
+    </div>
+</div>

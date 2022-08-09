@@ -1,0 +1,79 @@
+﻿@model KAMS.Models.C_ApartmantDetailView
+
+@{
+    ViewBag.Title = "ApartmantDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container my-4">
+
+    <h2 class="text-center">Apartmant Detail</h2>
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.NAME ,htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NAME, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.COUNTRY, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.COUNTRY, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.COUNTRY, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CITY, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CITY, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.CITY, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TOWNS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TOWNS, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.TOWNS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DISTRICT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => Model.DISTRICT, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.DISTRICT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AIDAT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.AIDAT, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.AIDAT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.C_ADDRESS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.C_ADDRESS, new { htmlAttributes = new { @class = "form-control input-rounded", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.C_ADDRESS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <p>
+            @Html.ActionLink("Back to List", "ApartmantLists", null, new { @class = "btn btn-default btn-rounded" }) |
+            @Html.ActionLink("Update", "ApartmantEdit", null, new { id = Model.ID }, new { @class = "btn btn-success btn-rounded" })
+        </p>
+    </div>
+</div>
+

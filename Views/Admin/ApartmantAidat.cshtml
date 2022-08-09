@@ -1,0 +1,19 @@
+﻿@*@model IEnumerable<KAMS.Models.ApartmanAidat>*@
+@*@model KAMS.Models.ApartmantAidatVDetail*@
+@model KAMS.Models.ApartmanAidat
+
+@{
+    var sonuc = 0;
+}
+
+@*@foreach (var item in Model.Aidats)
+{
+    sonuc += Convert.ToInt32(item.TUTAR);    
+}*@
+
+@foreach (var item in Model.ID.ToString())
+{
+    sonuc += Convert.ToInt32(item.TUTAR);    
+}
+
+@Html.DisplayFor(modelItem => sonuc)

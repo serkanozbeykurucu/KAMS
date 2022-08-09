@@ -1,0 +1,1165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{749F7FB5-9BA3-4908-9E3C-A0E1543B3B7F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KAMS</RootNamespace>
+    <AssemblyName>KAMS</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44309</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Authentication.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Authentication.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Cookies, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Authentication.Cookies.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Authentication.Core.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Cryptography.Internal.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Cryptography.KeyDerivation.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.DataProtection.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.DataProtection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.DataProtection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.DataProtection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.Extensions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Identity, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Identity.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Binder.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.FileProviders.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Identity.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Identity.Core.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.ObjectPool.2.2.0\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.WebEncoders, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.WebEncoders.2.2.0\lib\netstandard2.0\Microsoft.Extensions.WebEncoders.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.PowerBI.Api, Version=4.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.PowerBI.Api.4.8.0\lib\net48\Microsoft.PowerBI.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Rest.ClientRuntime.2.3.21\lib\net461\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Win32.Registry.4.5.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.AccessControl.4.5.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Xml.4.5.0\lib\net461\System.Security.Cryptography.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Permissions.4.5.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.4.5.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.WebHost.5.2.9\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ApartmantManagementController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AMU.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApartmanAidat.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApartmanCasa.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApartmanExpense.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApartmanRevenue.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApartmantAidatVDetail.cs" />
+    <Compile Include="Models\ApartmantBlocs.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ApartmantDetails.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CITY.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CityFilter.cs" />
+    <Compile Include="Models\COUNTRY.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C_ApartmanManagementResident.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C_ApartmantDetailView.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C_ResidentAccountDetailView.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C_UserYetkiView.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C_ViewTest.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAIRELER.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DISTRICTS.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\EXPENSETYPE.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Images.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KAMSModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KAMSModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KAMSModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KAMSModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KAMSModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KATLAR.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\recovaryUsers.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RESIDENT.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResidentAccount.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResidentExpense.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResidentRevenus.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\REVUNUETYPE.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_UserSearch_Result.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TOWNS.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USERS.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\View_1.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\YETKILER.cs">
+      <DependentUpon>KAMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\_ResidentAccountDetailClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\UserRoleProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="adminassets\css\admin\assets\fonts\themify.svg" />
+    <Content Include="adminassets\css\lib\barRating\barRating.css" />
+    <Content Include="adminassets\css\lib\barRating\barRating.init.js" />
+    <Content Include="adminassets\css\lib\barRating\jquery.barrating.js" />
+    <Content Include="adminassets\css\lib\bootstrap.min.css" />
+    <Content Include="adminassets\css\lib\bootstrap.min.js" />
+    <Content Include="adminassets\css\lib\calendar-2\moment.latest.min.js" />
+    <Content Include="adminassets\css\lib\calendar-2\pignose.calendar.min.js" />
+    <Content Include="adminassets\css\lib\calendar-2\pignose.init.js" />
+    <Content Include="adminassets\css\lib\calendar-2\prism.min.js" />
+    <Content Include="adminassets\css\lib\calendar-2\semantic.ui.min.js" />
+    <Content Include="adminassets\css\lib\calendar2\pignose.calendar.min.css" />
+    <Content Include="adminassets\css\lib\calendar2\semantic.ui.min.css" />
+    <Content Include="adminassets\css\lib\calendar\fullcalendar-init.js" />
+    <Content Include="adminassets\css\lib\calendar\fullcalendar.css" />
+    <Content Include="adminassets\css\lib\calendar\fullcalendar.min.js" />
+    <Content Include="adminassets\css\lib\chart-js\Chart.bundle.js" />
+    <Content Include="adminassets\css\lib\chart-js\chartjs-init.js" />
+    <Content Include="adminassets\css\lib\chartist\chartist-init.js" />
+    <Content Include="adminassets\css\lib\chartist\chartist-plugin-tooltip.min.js" />
+    <Content Include="adminassets\css\lib\chartist\chartist.min.css" />
+    <Content Include="adminassets\css\lib\chartist\chartist.min.js" />
+    <Content Include="adminassets\css\lib\chat-widget\chat-widget-init.js" />
+    <Content Include="adminassets\css\lib\circle-progress\circle-progress-init.js" />
+    <Content Include="adminassets\css\lib\circle-progress\circle-progress.min.js" />
+    <Content Include="adminassets\css\lib\data-table\buttons.bootstrap.min.css" />
+    <Content Include="adminassets\css\lib\data-table\buttons.colVis.min.js" />
+    <Content Include="adminassets\css\lib\data-table\buttons.dataTables.min.css" />
+    <Content Include="adminassets\css\lib\data-table\buttons.flash.min.js" />
+    <Content Include="adminassets\css\lib\data-table\buttons.html5.min.js" />
+    <Content Include="adminassets\css\lib\data-table\buttons.print.min.js" />
+    <Content Include="adminassets\css\lib\data-table\datatables-init.js" />
+    <Content Include="adminassets\css\lib\data-table\dataTables.bootstrap.min.css" />
+    <Content Include="adminassets\css\lib\data-table\dataTables.buttons.min.js" />
+    <Content Include="adminassets\css\lib\data-table\datatables.min.js" />
+    <Content Include="adminassets\css\lib\data-table\jquery-1.12.4.js" />
+    <Content Include="adminassets\css\lib\data-table\jquery.dataTables.min.js" />
+    <Content Include="adminassets\css\lib\data-table\jszip.min.js" />
+    <Content Include="adminassets\css\lib\data-table\pdfmake.min.js" />
+    <Content Include="adminassets\css\lib\data-table\vfs_fonts.js" />
+    <Content Include="adminassets\css\lib\datamap\d3.min.js" />
+    <Content Include="adminassets\css\lib\datamap\datamap-init.js" />
+    <Content Include="adminassets\css\lib\datamap\datamaps.world.min.js" />
+    <Content Include="adminassets\css\lib\datamap\topojson.js" />
+    <Content Include="adminassets\css\lib\datepicker\bootstrap-datepicker.min.js" />
+    <Content Include="adminassets\css\lib\datepicker\bootstrap-datepicker3.min.css" />
+    <Content Include="adminassets\css\lib\easing\jquery.easing.min.js" />
+    <Content Include="adminassets\css\lib\easing\stepup-form-init.js" />
+    <Content Include="adminassets\css\lib\flot-chart\curvedLines.js" />
+    <Content Include="adminassets\css\lib\flot-chart\excanvas.min.js" />
+    <Content Include="adminassets\css\lib\flot-chart\flot-chart-init.js" />
+    <Content Include="adminassets\css\lib\flot-chart\flot-tooltip\jquery.flot.tooltip.min.js" />
+    <Content Include="adminassets\css\lib\flot-chart\jquery.flot.categories.js" />
+    <Content Include="adminassets\css\lib\flot-chart\jquery.flot.crosshair.js" />
+    <Content Include="adminassets\css\lib\flot-chart\jquery.flot.js" />
+    <Content Include="adminassets\css\lib\flot-chart\jquery.flot.pie.js" />
+    <Content Include="adminassets\css\lib\flot-chart\jquery.flot.resize.js" />
+    <Content Include="adminassets\css\lib\flot-chart\jquery.flot.stack.js" />
+    <Content Include="adminassets\css\lib\flot-chart\jquery.flot.threshold.js" />
+    <Content Include="adminassets\css\lib\flot-chart\jquery.flot.time.js" />
+    <Content Include="adminassets\css\lib\flowtype.js" />
+    <Content Include="adminassets\css\lib\font-awesome.min.css" />
+    <Content Include="adminassets\css\lib\form-validation\jquery.validate-init.js" />
+    <Content Include="adminassets\css\lib\form-validation\jquery.validate.min.js" />
+    <Content Include="adminassets\css\lib\gmap\gmap.init.js" />
+    <Content Include="adminassets\css\lib\gmap\gmapApi.js" />
+    <Content Include="adminassets\css\lib\gmap\gmaps.js" />
+    <Content Include="adminassets\css\lib\granim\granim-init.js" />
+    <Content Include="adminassets\css\lib\granim\granim.min.js" />
+    <Content Include="adminassets\css\lib\helper.css" />
+    <Content Include="adminassets\css\lib\invoice-edit.js" />
+    <Content Include="adminassets\css\lib\jquery-ui.min.css" />
+    <Content Include="adminassets\css\lib\jquery-ui\jquery-ui.min.js" />
+    <Content Include="adminassets\css\lib\jquery-ui\jquery.ui.touch-punch.min.js" />
+    <Content Include="adminassets\css\lib\jquery.min.js" />
+    <Content Include="adminassets\css\lib\jquery.nanoscroller.min.js" />
+    <Content Include="adminassets\css\lib\jsgrid\db.js" />
+    <Content Include="adminassets\css\lib\jsgrid\fields\jsgrid.field.checkbox.js" />
+    <Content Include="adminassets\css\lib\jsgrid\fields\jsgrid.field.control.js" />
+    <Content Include="adminassets\css\lib\jsgrid\fields\jsgrid.field.number.js" />
+    <Content Include="adminassets\css\lib\jsgrid\fields\jsgrid.field.select.js" />
+    <Content Include="adminassets\css\lib\jsgrid\fields\jsgrid.field.text.js" />
+    <Content Include="adminassets\css\lib\jsgrid\fields\jsgrid.field.textarea.js" />
+    <Content Include="adminassets\css\lib\jsgrid\jsgrid-init.js" />
+    <Content Include="adminassets\css\lib\jsgrid\jsgrid-theme.min.css" />
+    <Content Include="adminassets\css\lib\jsgrid\jsgrid.core.js" />
+    <Content Include="adminassets\css\lib\jsgrid\jsgrid.field.js" />
+    <Content Include="adminassets\css\lib\jsgrid\jsgrid.load-indicator.js" />
+    <Content Include="adminassets\css\lib\jsgrid\jsgrid.load-strategies.js" />
+    <Content Include="adminassets\css\lib\jsgrid\jsgrid.min.css" />
+    <Content Include="adminassets\css\lib\jsgrid\jsgrid.sort-strategies.js" />
+    <Content Include="adminassets\css\lib\jsgrid\jsgrid.validation.js" />
+    <Content Include="adminassets\css\lib\knob\jquery.knob.min.js" />
+    <Content Include="adminassets\css\lib\knob\knob.init.js" />
+    <Content Include="adminassets\css\lib\line-progress\jquery.lineProgressbar.css" />
+    <Content Include="adminassets\css\lib\line-progress\jquery.lineProgressbar.js" />
+    <Content Include="adminassets\css\lib\line-progress\line-progress-init.js" />
+    <Content Include="adminassets\css\lib\lobi-panel\lobipanel.min.css" />
+    <Content Include="adminassets\css\lib\materialize.min.css" />
+    <Content Include="adminassets\css\lib\menubar\sidebar.css" />
+    <Content Include="adminassets\css\lib\menubar\sidebar.js" />
+    <Content Include="adminassets\css\lib\metismenu\jquery.slimscroll.js" />
+    <Content Include="adminassets\css\lib\metismenu\menu.css" />
+    <Content Include="adminassets\css\lib\metismenu\metismenu.init.js" />
+    <Content Include="adminassets\css\lib\metismenu\metismenu.min.js" />
+    <Content Include="adminassets\css\lib\mmc-chat.css" />
+    <Content Include="adminassets\css\lib\mmc-common.js" />
+    <Content Include="adminassets\css\lib\moment\moment.js" />
+    <Content Include="adminassets\css\lib\morris-chart\morris-init.js" />
+    <Content Include="adminassets\css\lib\morris-chart\morris.js" />
+    <Content Include="adminassets\css\lib\morris-chart\raphael-min.js" />
+    <Content Include="adminassets\css\lib\nestable\jquery.nestable.js" />
+    <Content Include="adminassets\css\lib\nestable\nestable.css" />
+    <Content Include="adminassets\css\lib\nestable\nestable.init.js" />
+    <Content Include="adminassets\css\lib\owl-carousel\owl.carousel-init.js" />
+    <Content Include="adminassets\css\lib\owl-carousel\owl.carousel.min.js" />
+    <Content Include="adminassets\css\lib\owl.carousel.min.css" />
+    <Content Include="adminassets\css\lib\owl.theme.default.min.css" />
+    <Content Include="adminassets\css\lib\peitychart\jquery.peity.min.js" />
+    <Content Include="adminassets\css\lib\peitychart\peitychart.init.js" />
+    <Content Include="adminassets\css\lib\portlets\portlets-init.js" />
+    <Content Include="adminassets\css\lib\portlets\portlets.js" />
+    <Content Include="adminassets\css\lib\preloader\pace.css" />
+    <Content Include="adminassets\css\lib\preloader\pace.min.js" />
+    <Content Include="adminassets\css\lib\rangeSlider\ion.rangeSlider.min.js" />
+    <Content Include="adminassets\css\lib\rangeSlider\moment-with-locales.js" />
+    <Content Include="adminassets\css\lib\rangeSlider\moment.js" />
+    <Content Include="adminassets\css\lib\rangeSlider\rangeslider.init.js" />
+    <Content Include="adminassets\css\lib\rangSlider\ion.rangeSlider.css" />
+    <Content Include="adminassets\css\lib\rangSlider\ion.rangeSlider.skinFlat.css" />
+    <Content Include="adminassets\css\lib\rangSlider\ion.rangeSlider.skinHTML5.css" />
+    <Content Include="adminassets\css\lib\rangSlider\ion.rangeSlider.skinModern.css" />
+    <Content Include="adminassets\css\lib\rangSlider\ion.rangeSlider.skinNice.css" />
+    <Content Include="adminassets\css\lib\rangSlider\ion.rangeSlider.skinSimple.css" />
+    <Content Include="adminassets\css\lib\rangSlider\normalize.css" />
+    <Content Include="adminassets\css\lib\rating1\jRate.init.js" />
+    <Content Include="adminassets\css\lib\rating1\jRate.min.js" />
+    <Content Include="adminassets\css\lib\scrollable\holder.js" />
+    <Content Include="adminassets\css\lib\scrollable\jquery-asScrollable.min.js" />
+    <Content Include="adminassets\css\lib\scrollable\jquery-asScrollbar.js" />
+    <Content Include="adminassets\css\lib\scrollable\scrollable.init.js" />
+    <Content Include="adminassets\css\lib\scrollable\scrollable.min.css" />
+    <Content Include="adminassets\css\lib\select2\select2.full.min.js" />
+    <Content Include="adminassets\css\lib\select2\select2.min.css" />
+    <Content Include="adminassets\css\lib\sparklinechart\jquery.sparkline.min.js" />
+    <Content Include="adminassets\css\lib\sparklinechart\sparkline.init.js" />
+    <Content Include="adminassets\css\lib\sweetalert\sweetalert.css" />
+    <Content Include="adminassets\css\lib\sweetalert\sweetalert.init.js" />
+    <Content Include="adminassets\css\lib\sweetalert\sweetalert.min.js" />
+    <Content Include="adminassets\css\lib\themify-icons.css" />
+    <Content Include="adminassets\css\lib\toastr\toastr.init.js" />
+    <Content Include="adminassets\css\lib\toastr\toastr.min.css" />
+    <Content Include="adminassets\css\lib\toastr\toastr.min.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.algeria.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.argentina.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.brazil.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.europe.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.france.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.germany.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.greece.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.iran.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.iraq.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.russia.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.tunisia.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.turkey.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.usa.js" />
+    <Content Include="adminassets\css\lib\vector-map\country\jquery.vmap.world.js" />
+    <Content Include="adminassets\css\lib\vector-map\jquery.vmap.js" />
+    <Content Include="adminassets\css\lib\vector-map\jquery.vmap.min.js" />
+    <Content Include="adminassets\css\lib\vector-map\jquery.vmap.sampledata.js" />
+    <Content Include="adminassets\css\lib\vector-map\jqvmap.min.css" />
+    <Content Include="adminassets\css\lib\vector-map\vector.init.js" />
+    <Content Include="adminassets\css\lib\weather-icons.css" />
+    <Content Include="adminassets\css\lib\weather\jquery.simpleWeather.min.js" />
+    <Content Include="adminassets\css\lib\weather\weather-init.js" />
+    <Content Include="adminassets\css\style.css" />
+    <Content Include="adminassets\fonts\fontawesome-webfont.svg" />
+    <Content Include="adminassets\fonts\fontawesome-webfont_files\viewsource.css" />
+    <Content Include="adminassets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="adminassets\fonts\MontserratLight.svg" />
+    <Content Include="adminassets\fonts\themify.svg" />
+    <Content Include="adminassets\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="adminassets\images\1.png" />
+    <Content Include="adminassets\images\2.png" />
+    <Content Include="adminassets\images\3.jpg" />
+    <Content Include="adminassets\images\3.png" />
+    <Content Include="adminassets\images\4.jpg" />
+    <Content Include="adminassets\images\8.png" />
+    <Content Include="adminassets\images\avatar.png" />
+    <Content Include="adminassets\images\avatar\1.jpg" />
+    <Content Include="adminassets\images\avatar\2.jpg" />
+    <Content Include="adminassets\images\avatar\3.jpg" />
+    <Content Include="adminassets\images\avatar\usa-flag.png" />
+    <Content Include="adminassets\images\bookingSystem\1.png" />
+    <Content Include="adminassets\images\bookingSystem\2.png" />
+    <Content Include="adminassets\images\bookingSystem\3.png" />
+    <Content Include="adminassets\images\bookingSystem\4.png" />
+    <Content Include="adminassets\images\bookingSystem\5.png" />
+    <Content Include="adminassets\images\bookingSystem\6.png" />
+    <Content Include="adminassets\images\bookingSystem\7.png" />
+    <Content Include="adminassets\images\bookingSystem\8.png" />
+    <Content Include="adminassets\images\c1.jpg" />
+    <Content Include="adminassets\images\c2.jpg" />
+    <Content Include="adminassets\images\c3.jpg" />
+    <Content Include="adminassets\images\chat-person-add.png" />
+    <Content Include="adminassets\images\close.png" />
+    <Content Include="adminassets\images\fjords.jpg" />
+    <Content Include="adminassets\images\hand.jpg" />
+    <Content Include="adminassets\images\lights.jpg" />
+    <Content Include="adminassets\images\logo.png" />
+    <Content Include="adminassets\images\maximize.png" />
+    <Content Include="adminassets\images\minimize.png" />
+    <Content Include="adminassets\images\nature.jpg" />
+    <Content Include="adminassets\images\newyork.jpg" />
+    <Content Include="adminassets\images\paris.jpg" />
+    <Content Include="adminassets\images\paypal.png" />
+    <Content Include="adminassets\images\picture.png" />
+    <Content Include="adminassets\images\preview1.png" />
+    <Content Include="adminassets\images\product-2.jpg" />
+    <Content Include="adminassets\images\product.jpg" />
+    <Content Include="adminassets\images\product_1\1.jpg" />
+    <Content Include="adminassets\images\product_1\2.jpg" />
+    <Content Include="adminassets\images\product_1\3.jpg" />
+    <Content Include="adminassets\images\product_1\burger.jpg" />
+    <Content Include="adminassets\images\product_1\download.jpg" />
+    <Content Include="adminassets\images\product_1\image-10.jpg" />
+    <Content Include="adminassets\images\product_1\image-8-226x223.jpg" />
+    <Content Include="adminassets\images\product_1\image-9.jpg" />
+    <Content Include="adminassets\images\product_1\images.jpg" />
+    <Content Include="adminassets\images\product_1\pizza2.jpg" />
+    <Content Include="adminassets\images\profile-bg.jpg" />
+    <Content Include="adminassets\images\rangeSliderimg\sprite-skin-flat.png" />
+    <Content Include="adminassets\images\rangeSliderimg\sprite-skin-modern.png" />
+    <Content Include="adminassets\images\rangeSliderimg\sprite-skin-nice.png" />
+    <Content Include="adminassets\images\rangeSliderimg\sprite-skin-simple.png" />
+    <Content Include="adminassets\images\sanfran.jpg" />
+    <Content Include="adminassets\images\scrollable\view-1-1200x800.jpg" />
+    <Content Include="adminassets\images\smile.png" />
+    <Content Include="adminassets\images\user-1.png" />
+    <Content Include="adminassets\images\user-bg.jpg" />
+    <Content Include="adminassets\images\user-female.png" />
+    <Content Include="adminassets\images\user-profile.jpg" />
+    <Content Include="adminassets\images\user.jpg" />
+    <Content Include="adminassets\images\video-cam.png" />
+    <Content Include="adminassets\images\watch.jpg" />
+    <Content Include="adminassets\js\dashboard1.js" />
+    <Content Include="adminassets\js\dashboard2.js" />
+    <Content Include="adminassets\js\lib\barRating\barRating.init.js" />
+    <Content Include="adminassets\js\lib\barRating\jquery.barrating.js" />
+    <Content Include="adminassets\js\lib\bootstrap.min.js" />
+    <Content Include="adminassets\js\lib\calendar-2\moment.latest.min.js" />
+    <Content Include="adminassets\js\lib\calendar-2\pignose.calendar.min.js" />
+    <Content Include="adminassets\js\lib\calendar-2\pignose.init.js" />
+    <Content Include="adminassets\js\lib\calendar-2\prism.min.js" />
+    <Content Include="adminassets\js\lib\calendar-2\semantic.ui.min.js" />
+    <Content Include="adminassets\js\lib\calendar\fullcalendar-init.js" />
+    <Content Include="adminassets\js\lib\calendar\fullcalendar.min.js" />
+    <Content Include="adminassets\js\lib\chart-js\Chart.bundle.js" />
+    <Content Include="adminassets\js\lib\chart-js\chartjs-init.js" />
+    <Content Include="adminassets\js\lib\chartist\chartist-init.js" />
+    <Content Include="adminassets\js\lib\chartist\chartist-plugin-tooltip.min.js" />
+    <Content Include="adminassets\js\lib\chartist\chartist.min.js" />
+    <Content Include="adminassets\js\lib\chat-widget\chat-widget-init.js" />
+    <Content Include="adminassets\js\lib\circle-progress\circle-progress-init.js" />
+    <Content Include="adminassets\js\lib\circle-progress\circle-progress.min.js" />
+    <Content Include="adminassets\js\lib\data-table\buttons.colVis.min.js" />
+    <Content Include="adminassets\js\lib\data-table\buttons.flash.min.js" />
+    <Content Include="adminassets\js\lib\data-table\buttons.html5.min.js" />
+    <Content Include="adminassets\js\lib\data-table\buttons.print.min.js" />
+    <Content Include="adminassets\js\lib\data-table\datatables-init.js" />
+    <Content Include="adminassets\js\lib\data-table\dataTables.buttons.min.js" />
+    <Content Include="adminassets\js\lib\data-table\datatables.min.js" />
+    <Content Include="adminassets\js\lib\data-table\jquery-1.12.4.js" />
+    <Content Include="adminassets\js\lib\data-table\jquery.dataTables.min.js" />
+    <Content Include="adminassets\js\lib\data-table\jszip.min.js" />
+    <Content Include="adminassets\js\lib\data-table\pdfmake.min.js" />
+    <Content Include="adminassets\js\lib\data-table\vfs_fonts.js" />
+    <Content Include="adminassets\js\lib\datamap\d3.min.js" />
+    <Content Include="adminassets\js\lib\datamap\datamap-init.js" />
+    <Content Include="adminassets\js\lib\datamap\datamaps.world.min.js" />
+    <Content Include="adminassets\js\lib\datamap\topojson.js" />
+    <Content Include="adminassets\js\lib\datepicker\bootstrap-datepicker.min.js" />
+    <Content Include="adminassets\js\lib\easing\jquery.easing.min.js" />
+    <Content Include="adminassets\js\lib\easing\stepup-form-init.js" />
+    <Content Include="adminassets\js\lib\flot-chart\curvedLines.js" />
+    <Content Include="adminassets\js\lib\flot-chart\excanvas.min.js" />
+    <Content Include="adminassets\js\lib\flot-chart\flot-chart-init.js" />
+    <Content Include="adminassets\js\lib\flot-chart\flot-tooltip\jquery.flot.tooltip.min.js" />
+    <Content Include="adminassets\js\lib\flot-chart\jquery.flot.categories.js" />
+    <Content Include="adminassets\js\lib\flot-chart\jquery.flot.crosshair.js" />
+    <Content Include="adminassets\js\lib\flot-chart\jquery.flot.js" />
+    <Content Include="adminassets\js\lib\flot-chart\jquery.flot.pie.js" />
+    <Content Include="adminassets\js\lib\flot-chart\jquery.flot.resize.js" />
+    <Content Include="adminassets\js\lib\flot-chart\jquery.flot.stack.js" />
+    <Content Include="adminassets\js\lib\flot-chart\jquery.flot.threshold.js" />
+    <Content Include="adminassets\js\lib\flot-chart\jquery.flot.time.js" />
+    <Content Include="adminassets\js\lib\flowtype.js" />
+    <Content Include="adminassets\js\lib\form-validation\jquery.validate-init.js" />
+    <Content Include="adminassets\js\lib\form-validation\jquery.validate.min.js" />
+    <Content Include="adminassets\js\lib\gmap\gmap.init.js" />
+    <Content Include="adminassets\js\lib\gmap\gmapApi.js" />
+    <Content Include="adminassets\js\lib\gmap\gmaps.js" />
+    <Content Include="adminassets\js\lib\granim\granim-init.js" />
+    <Content Include="adminassets\js\lib\granim\granim.min.js" />
+    <Content Include="adminassets\js\lib\invoice-edit.js" />
+    <Content Include="adminassets\js\lib\jquery-ui\jquery-ui.min.js" />
+    <Content Include="adminassets\js\lib\jquery-ui\jquery.ui.touch-punch.min.js" />
+    <Content Include="adminassets\js\lib\jquery.min.js" />
+    <Content Include="adminassets\js\lib\jquery.nanoscroller.min.js" />
+    <Content Include="adminassets\js\lib\jsgrid\db.js" />
+    <Content Include="adminassets\js\lib\jsgrid\fields\jsgrid.field.checkbox.js" />
+    <Content Include="adminassets\js\lib\jsgrid\fields\jsgrid.field.control.js" />
+    <Content Include="adminassets\js\lib\jsgrid\fields\jsgrid.field.number.js" />
+    <Content Include="adminassets\js\lib\jsgrid\fields\jsgrid.field.select.js" />
+    <Content Include="adminassets\js\lib\jsgrid\fields\jsgrid.field.text.js" />
+    <Content Include="adminassets\js\lib\jsgrid\fields\jsgrid.field.textarea.js" />
+    <Content Include="adminassets\js\lib\jsgrid\jsgrid-init.js" />
+    <Content Include="adminassets\js\lib\jsgrid\jsgrid.core.js" />
+    <Content Include="adminassets\js\lib\jsgrid\jsgrid.field.js" />
+    <Content Include="adminassets\js\lib\jsgrid\jsgrid.load-indicator.js" />
+    <Content Include="adminassets\js\lib\jsgrid\jsgrid.load-strategies.js" />
+    <Content Include="adminassets\js\lib\jsgrid\jsgrid.sort-strategies.js" />
+    <Content Include="adminassets\js\lib\jsgrid\jsgrid.validation.js" />
+    <Content Include="adminassets\js\lib\knob\jquery.knob.min.js" />
+    <Content Include="adminassets\js\lib\knob\knob.init.js" />
+    <Content Include="adminassets\js\lib\line-progress\jquery.lineProgressbar.js" />
+    <Content Include="adminassets\js\lib\line-progress\line-progress-init.js" />
+    <Content Include="adminassets\js\lib\menubar\sidebar.js" />
+    <Content Include="adminassets\js\lib\metismenu\jquery.slimscroll.js" />
+    <Content Include="adminassets\js\lib\metismenu\metismenu.init.js" />
+    <Content Include="adminassets\js\lib\metismenu\metismenu.min.js" />
+    <Content Include="adminassets\js\lib\mmc-common.js" />
+    <Content Include="adminassets\js\lib\moment\moment.js" />
+    <Content Include="adminassets\js\lib\morris-chart\morris-init.js" />
+    <Content Include="adminassets\js\lib\morris-chart\morris.js" />
+    <Content Include="adminassets\js\lib\morris-chart\raphael-min.js" />
+    <Content Include="adminassets\js\lib\nestable\jquery.nestable.js" />
+    <Content Include="adminassets\js\lib\nestable\nestable.init.js" />
+    <Content Include="adminassets\js\lib\owl-carousel\owl.carousel-init.js" />
+    <Content Include="adminassets\js\lib\owl-carousel\owl.carousel.min.js" />
+    <Content Include="adminassets\js\lib\peitychart\jquery.peity.min.js" />
+    <Content Include="adminassets\js\lib\peitychart\peitychart.init.js" />
+    <Content Include="adminassets\js\lib\portlets\portlets-init.js" />
+    <Content Include="adminassets\js\lib\portlets\portlets.js" />
+    <Content Include="adminassets\js\lib\preloader\pace.min.js" />
+    <Content Include="adminassets\js\lib\rangeSlider\ion.rangeSlider.min.js" />
+    <Content Include="adminassets\js\lib\rangeSlider\moment-with-locales.js" />
+    <Content Include="adminassets\js\lib\rangeSlider\moment.js" />
+    <Content Include="adminassets\js\lib\rangeSlider\rangeslider.init.js" />
+    <Content Include="adminassets\js\lib\rating1\jRate.init.js" />
+    <Content Include="adminassets\js\lib\rating1\jRate.min.js" />
+    <Content Include="adminassets\js\lib\scrollable\holder.js" />
+    <Content Include="adminassets\js\lib\scrollable\jquery-asScrollable.min.js" />
+    <Content Include="adminassets\js\lib\scrollable\jquery-asScrollbar.js" />
+    <Content Include="adminassets\js\lib\scrollable\scrollable.init.js" />
+    <Content Include="adminassets\js\lib\select2\select2.full.min.js" />
+    <Content Include="adminassets\js\lib\sparklinechart\jquery.sparkline.min.js" />
+    <Content Include="adminassets\js\lib\sparklinechart\sparkline.init.js" />
+    <Content Include="adminassets\js\lib\sweetalert\sweetalert.init.js" />
+    <Content Include="adminassets\js\lib\sweetalert\sweetalert.min.js" />
+    <Content Include="adminassets\js\lib\toastr\toastr.init.js" />
+    <Content Include="adminassets\js\lib\toastr\toastr.min.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.algeria.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.argentina.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.brazil.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.europe.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.france.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.germany.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.greece.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.iran.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.iraq.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.russia.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.tunisia.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.turkey.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.usa.js" />
+    <Content Include="adminassets\js\lib\vector-map\country\jquery.vmap.world.js" />
+    <Content Include="adminassets\js\lib\vector-map\jquery.vmap.js" />
+    <Content Include="adminassets\js\lib\vector-map\jquery.vmap.min.js" />
+    <Content Include="adminassets\js\lib\vector-map\jquery.vmap.sampledata.js" />
+    <Content Include="adminassets\js\lib\vector-map\vector.init.js" />
+    <Content Include="adminassets\js\lib\weather\jquery.simpleWeather.min.js" />
+    <Content Include="adminassets\js\lib\weather\weather-init.js" />
+    <Content Include="adminassets\js\scripts.js" />
+    <Content Include="adminassets\placeholder\1.png" />
+    <Content Include="adminassets\placeholder\2.png" />
+    <Content Include="adminassets\placeholder\3.jpg" />
+    <Content Include="adminassets\placeholder\3.png" />
+    <Content Include="adminassets\placeholder\4.jpg" />
+    <Content Include="adminassets\placeholder\avatar.png" />
+    <Content Include="adminassets\placeholder\avatar\1.jpg" />
+    <Content Include="adminassets\placeholder\avatar\2.jpg" />
+    <Content Include="adminassets\placeholder\avatar\3.jpg" />
+    <Content Include="adminassets\placeholder\avatar\usa-flag.png" />
+    <Content Include="adminassets\placeholder\chat-person-add.png" />
+    <Content Include="adminassets\placeholder\close.png" />
+    <Content Include="adminassets\placeholder\fjords.jpg" />
+    <Content Include="adminassets\placeholder\hand.jpg" />
+    <Content Include="adminassets\placeholder\lights.jpg" />
+    <Content Include="adminassets\placeholder\logo.png" />
+    <Content Include="adminassets\placeholder\maximize.png" />
+    <Content Include="adminassets\placeholder\minimize.png" />
+    <Content Include="adminassets\placeholder\nature.jpg" />
+    <Content Include="adminassets\placeholder\newyork.jpg" />
+    <Content Include="adminassets\placeholder\paris.jpg" />
+    <Content Include="adminassets\placeholder\paypal.png" />
+    <Content Include="adminassets\placeholder\picture.png" />
+    <Content Include="adminassets\placeholder\preview1.png" />
+    <Content Include="adminassets\placeholder\profile-bg.jpg" />
+    <Content Include="adminassets\placeholder\rangeSliderimg\sprite-skin-flat.png" />
+    <Content Include="adminassets\placeholder\rangeSliderimg\sprite-skin-modern.png" />
+    <Content Include="adminassets\placeholder\rangeSliderimg\sprite-skin-nice.png" />
+    <Content Include="adminassets\placeholder\rangeSliderimg\sprite-skin-simple.png" />
+    <Content Include="adminassets\placeholder\sanfran.jpg" />
+    <Content Include="adminassets\placeholder\scrollable\view-1-1200x800.jpg" />
+    <Content Include="adminassets\placeholder\smile.png" />
+    <Content Include="adminassets\placeholder\user-1.png" />
+    <Content Include="adminassets\placeholder\user-female.png" />
+    <Content Include="adminassets\placeholder\user-profile.jpg" />
+    <Content Include="adminassets\placeholder\user.jpg" />
+    <Content Include="adminassets\placeholder\video-cam.png" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\bootstrap\mixins\_border-radius.css" />
+    <Content Include="assets\css\bootstrap\mixins\_reset-text.css" />
+    <Content Include="assets\css\bootstrap\mixins\_screen-reader.css" />
+    <Content Include="assets\css\bootstrap\mixins\_text-hide.css" />
+    <Content Include="assets\css\bootstrap\mixins\_visibility.css" />
+    <Content Include="assets\css\bootstrap\utilities\_stretched-link.css" />
+    <Content Include="assets\css\bootstrap\_media.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\style1.css" />
+    <Content Include="assets\img\about.jpg" />
+    <Content Include="assets\img\adminImg\1657129624806.jpg" />
+    <Content Include="assets\img\team\85db4c4d-dac9-4ef6-aadb-5bc638dd71af.jpg" />
+    <Content Include="assets\img\apple-touch-icon.png" />
+    <Content Include="assets\img\bg.jpg" />
+    <Content Include="assets\img\clients\client-1.png" />
+    <Content Include="assets\img\clients\client-2.png" />
+    <Content Include="assets\img\clients\client-3.png" />
+    <Content Include="assets\img\clients\client-4.png" />
+    <Content Include="assets\img\clients\client-5.png" />
+    <Content Include="assets\img\clients\client-6.png" />
+    <Content Include="assets\img\cta-bg.jpg" />
+    <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\hero-bg.jpg" />
+    <Content Include="assets\img\portfolio\portfolio-1.jpg" />
+    <Content Include="assets\img\portfolio\portfolio-2.jpg" />
+    <Content Include="assets\img\portfolio\portfolio-3.jpg" />
+    <Content Include="assets\img\portfolio\portfolio-4.jpg" />
+    <Content Include="assets\img\portfolio\portfolio-5.jpg" />
+    <Content Include="assets\img\portfolio\portfolio-6.jpg" />
+    <Content Include="assets\img\portfolio\portfolio-7.jpg" />
+    <Content Include="assets\img\portfolio\portfolio-8.jpg" />
+    <Content Include="assets\img\portfolio\portfolio-9.jpg" />
+    <Content Include="assets\img\portfolio\portfolio-details-1.jpg" />
+    <Content Include="assets\img\portfolio\portfolio-details-2.jpg" />
+    <Content Include="assets\img\portfolio\portfolio-details-3.jpg" />
+    <Content Include="assets\img\team\team-1.jpg" />
+    <Content Include="assets\img\team\team-2.jpg" />
+    <Content Include="assets\img\team\team-3.jpg" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\main1.js" />
+    <Content Include="assets\js\popper.js" />
+    <Content Include="assets\vendor\aos\aos.css" />
+    <Content Include="assets\vendor\aos\aos.js" />
+    <Content Include="assets\vendor\bootstrap-icons\bootstrap-icons.css" />
+    <Content Include="assets\vendor\bootstrap-icons\index.html" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.rtl.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.rtl.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-utilities.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-utilities.min.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-utilities.rtl.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.rtl.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.rtl.min.css" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.esm.js" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.esm.min.js" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\vendor\boxicons\css\animations.css" />
+    <Content Include="assets\vendor\boxicons\css\boxicons.css" />
+    <Content Include="assets\vendor\boxicons\css\boxicons.min.css" />
+    <Content Include="assets\vendor\boxicons\css\transformations.css" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.svg" />
+    <Content Include="assets\vendor\glightbox\css\glightbox.css" />
+    <Content Include="assets\vendor\glightbox\css\glightbox.min.css" />
+    <Content Include="assets\vendor\glightbox\js\glightbox.js" />
+    <Content Include="assets\vendor\glightbox\js\glightbox.min.js" />
+    <Content Include="assets\vendor\isotope-layout\isotope.pkgd.js" />
+    <Content Include="assets\vendor\isotope-layout\isotope.pkgd.min.js" />
+    <Content Include="assets\vendor\php-email-form\validate.js" />
+    <Content Include="assets\vendor\swiper\swiper-bundle.min.css" />
+    <Content Include="assets\vendor\swiper\swiper-bundle.min.js" />
+    <Content Include="code.txt" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\KAMSModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KAMSModel.edmx</DependentUpon>
+      <LastGenOutput>KAMSModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\KAMSModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KAMSModel.edmx</DependentUpon>
+      <LastGenOutput>KAMSModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="assets\vendor\bootstrap-icons\bootstrap-icons.json" />
+    <Content Include="assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff" />
+    <Content Include="assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff2" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-utilities.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-utilities.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.rtl.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.rtl.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.esm.js.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.esm.min.js.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.eot" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.ttf" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.woff" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.woff2" />
+    <Content Include="assets\css\bootstrap.min.css.map" />
+    <Content Include="assets\css\bootstrap\.DS_Store" />
+    <Content Include="assets\css\bootstrap\mixins\.DS_Store" />
+    <Content Include="adminassets\css\admin\assets\fonts\themify.eot" />
+    <Content Include="adminassets\css\admin\assets\fonts\themify.ttf" />
+    <Content Include="adminassets\css\admin\assets\fonts\themify.woff" />
+    <Content Include="adminassets\fonts\fontawesome-webfont.eot" />
+    <Content Include="adminassets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="adminassets\fonts\fontawesome-webfont.woff" />
+    <Content Include="adminassets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="adminassets\fonts\FontAwesome.otf" />
+    <Content Include="adminassets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="adminassets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="adminassets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="adminassets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="adminassets\fonts\MontserratLight.eot" />
+    <Content Include="adminassets\fonts\MontserratLight.ttf" />
+    <Content Include="adminassets\fonts\MontserratLight.woff" />
+    <Content Include="adminassets\fonts\MontserratLight.woff2" />
+    <Content Include="adminassets\fonts\roboto\Roboto-Bold.woff" />
+    <Content Include="adminassets\fonts\roboto\Roboto-Bold.woff2" />
+    <Content Include="adminassets\fonts\roboto\Roboto-Light.woff" />
+    <Content Include="adminassets\fonts\roboto\Roboto-Light.woff2" />
+    <Content Include="adminassets\fonts\roboto\Roboto-Medium.woff" />
+    <Content Include="adminassets\fonts\roboto\Roboto-Medium.woff2" />
+    <Content Include="adminassets\fonts\roboto\Roboto-Regular.woff" />
+    <Content Include="adminassets\fonts\roboto\Roboto-Regular.woff2" />
+    <Content Include="adminassets\fonts\roboto\Roboto-Thin.woff" />
+    <Content Include="adminassets\fonts\roboto\Roboto-Thin.woff2" />
+    <Content Include="adminassets\fonts\themify.eot" />
+    <Content Include="adminassets\fonts\themify.ttf" />
+    <Content Include="adminassets\fonts\themify.woff" />
+    <Content Include="adminassets\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="adminassets\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="adminassets\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="adminassets\fonts\weathericons-regular-webfont.woff2" />
+    <EntityDeploy Include="Models\KAMSModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>KAMSModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\KAMSModel.edmx.diagram">
+      <DependentUpon>KAMSModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="libman.json" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_header.cshtml" />
+    <Content Include="Views\Shared\_footer.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Home\Team.cshtml" />
+    <Content Include="Views\Shared\_AccountLayout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Profile.cshtml" />
+    <Content Include="Views\Admin\Member.cshtml" />
+    <Content Include="Views\Admin\MemberAdd.cshtml" />
+    <Content Include="Views\Admin\MemberDetail.cshtml" />
+    <Content Include="Views\Admin\MemberEdit.cshtml" />
+    <Content Include="Views\Admin\ApartmantAidat.cshtml" />
+    <Content Include="Views\Admin\ApartmantBlokSayisi.cshtml" />
+    <Content Include="Views\Admin\ApartmantAdd.cshtml" />
+    <Content Include="Views\Admin\ApartmantLists.cshtml" />
+    <Content Include="Views\Admin\ApartmantDetail.cshtml" />
+    <Content Include="Views\Admin\ApartmantEdit.cshtml" />
+    <Content Include="Views\Admin\ApartmanManagmemtUser.cshtml" />
+    <Content Include="Views\Admin\ApartmantManagementDetails.cshtml" />
+    <Content Include="Views\Admin\ApartmantManagementEdit.cshtml" />
+    <Content Include="Views\Admin\ApartmantManagementDelete.cshtml" />
+    <Content Include="Views\Admin\ApartmantManagementCreate.cshtml" />
+    <Content Include="Views\Shared\_ApartmantManagementLayaout.cshtml" />
+    <Content Include="Views\ApartmantManagement\Member.cshtml" />
+    <Content Include="Views\ApartmantManagement\MemberAdd.cshtml" />
+    <Content Include="Views\ApartmantManagement\Profile.cshtml" />
+    <Content Include="Views\ApartmantManagement\ApartmantRevenue.cshtml" />
+    <Content Include="Views\ApartmantManagement\ApartmantRevenueDetail.cshtml" />
+    <Content Include="Views\ApartmantManagement\ApartmantRevenueDelete.cshtml" />
+    <Content Include="Views\ApartmantManagement\ApartmantRevenueEdit.cshtml" />
+    <Content Include="Views\ApartmantManagement\ApartmantRevenueAdd.cshtml" />
+    <Content Include="Views\ApartmantManagement\ApartmantManagementExpendCreate.cshtml" />
+    <Content Include="Views\ApartmantManagement\ApartmanManagmemtExpend.cshtml" />
+    <Content Include="Views\ApartmantManagement\ApartmantManagementExpendEdit.cshtml" />
+    <Content Include="Views\ApartmantManagement\ApartmantManagementExpendDetails.cshtml" />
+    <Content Include="Views\ApartmantManagement\ApartmantManagementExpendDelete.cshtml" />
+    <Content Include="Views\ApartmantManagement\ResidentAccount.cshtml" />
+    <Content Include="Views\ApartmantManagement\ResidentRevenueAdd.cshtml" />
+    <Content Include="Views\ApartmantManagement\ResidentExpendAdd.cshtml" />
+    <Content Include="Views\Admin\MemberDelete.cshtml" />
+    <Content Include="Views\Admin\ApartmantDelete.cshtml" />
+    <Content Include="Views\Admin\ApartmanBlocAdd.cshtml" />
+    <Content Include="Views\Admin\ApartmanAidatAdd.cshtml" />
+    <Content Include="Views\Admin\ApartmantKatAdd.cshtml" />
+    <Content Include="Views\Admin\ApartmantDaireAdd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57793</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44309/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

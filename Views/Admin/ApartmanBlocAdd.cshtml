@@ -1,0 +1,44 @@
+﻿@model KAMS.Models.ApartmantBlocs
+
+@{
+    ViewBag.Title = "ApartmanBlocAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h2 class="text-center my-3">Apartman Bloc Add</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.APID, "APID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("APID", null, htmlAttributes: new { @class = "form-control" })
+
+                    @Html.ValidationMessageFor(model => model.APID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BLOCNAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BLOCNAME, new { htmlAttributes = new { @class = "form-control input-rounded" } })
+                    @Html.ValidationMessageFor(model => model.BLOCNAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-primary btn-rounded btn-block" />
+                    @Html.ActionLink("Back to List", "ApartmantLists", null, new { @class = "btn btn-default btn-rounded my-3"})
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="343e4df66cc64491ac3a812cd6d45bca" Name="Diagram1" ZoomLevel="159">
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.AMU" Width="1.5" PointX="15" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.ApartmanAidat" Width="1.5" PointX="12" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.ApartmanCasa" Width="1.5" PointX="12" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.ApartmanExpense" Width="1.5" PointX="15" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.ApartmanRevenue" Width="1.5" PointX="15" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.ApartmantBlocs" Width="1.5" PointX="12" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.ApartmantDetails" Width="1.5" PointX="9.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.CITY" Width="1.5" PointX="3" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.COUNTRY" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.DAIRELER" Width="1.5" PointX="16.5" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.DISTRICTS" Width="1.5" PointX="7.5" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.EXPENSETYPE" Width="1.5" PointX="12.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.KATLAR" Width="1.5" PointX="14.25" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.recovaryUsers" Width="1.5" PointX="0.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.RESIDENT" Width="1.5" PointX="18.75" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.ResidentAccount" Width="1.5" PointX="21" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.ResidentExpense" Width="1.5" PointX="23.25" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.ResidentRevenus" Width="1.5" PointX="26.25" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.REVUNUETYPE" Width="1.5" PointX="12.75" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.TOWNS" Width="1.5" PointX="5.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.USERS" Width="1.5" PointX="12.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.YETKILER" Width="1.5" PointX="10.5" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.C_ApartmanManagementResident" Width="2.5" PointX="0.625" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.C_ApartmantDetailView" Width="2.75" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.C_UserYetkiView" Width="2.25" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.View_1" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_AMU_ApartmantDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_AMU_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ApartmanAidat_ApartmantDetails1" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ApartmanCasa_ApartmantDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ApartmanExpense_ApartmantDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ApartmanExpense_EXPENSETYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ApartmanRevenue_ApartmantDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ApartmanRevenue_REVUNUETYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ApartmantBlocs_ApartmantDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_DAIRELER_ApartmantBlocs" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_KATLAR_ApartmantBlocs" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_RESIDENT_ApartmantBlocs" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ApartmantDetails_CITY" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ApartmantDetails_COUNTRY" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ApartmantDetails_DISTRICTS" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ApartmantDetails_TOWNS" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_RESIDENT_ApartmantDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_CITY_COUNTRY" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_RESIDENT_CITY" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_TOWNS_CITY" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_USERS_CITY" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_RESIDENT_COUNTRY" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_USERS_COUNTRY" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_DAIRELER_KATLAR" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_RESIDENT_DAIRELER" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_DISTRICTS_TOWNS" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_RESIDENT_DISTRICTS" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_USERS_DISTRICTS" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_RESIDENT_KATLAR" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_RESIDENT_TOWNS" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ResidentAccount_RESIDENT" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ResidentExpense_ResidentAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ResidentRevenus_ResidentAccount" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ResidentExpense_REVUNUETYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ResidentRevenus_REVUNUETYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_USERS_TOWNS" ManuallyRouted="false" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_USERS_YETKILER" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.sysdiagrams" Width="1.5" PointX="7.375" PointY="5.75" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.C_ViewTest" Width="1.5" PointX="8.375" PointY="0.75" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ResidentRevenus_RESIDENT" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_ResidentExpense_RESIDENT" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.Images" Width="1.5" PointX="15" PointY="27.25" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_Images_User" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_KATLAR_ApartmanDetails" />
+        <AssociationConnector Association="DbApartmantManagamentSystemsModel.FK_DAIRELER_ApartmanDetails" />
+        <EntityTypeShape EntityType="DbApartmantManagamentSystemsModel.C_ResidentAccountDetailView" Width="1.5" PointX="7.375" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
